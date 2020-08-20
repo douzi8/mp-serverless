@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "checkJs": false,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "target": "esnext",
+    "declaration": false,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "alwaysStrict": true,
+    "outDir": "../dist/",
+    "baseUrl": "./",
+    "lib": ["dom", "esnext"],
+    "jsx": "preserve",
+    "types" : ["node"]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

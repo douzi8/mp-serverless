@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "dev": "webpack --config build/webpack.server.dev.conf.js",
+    "prod": "webpack --config build/webpack.server.prod.conf.js",
+    "inspect": "alipaydev cloud function dev -i 2021001136614025 -p functions/ --inspect",
+    "deploy:dev": "npm run prod && alipaydev cloud function deploy -i 2021001136614025 -s d3256972-e23e-4eb6-9bea-c92ce0a2d74e  -p functions/ -n todo admin",
+    "deploy:test": "npm run prod && alipaydev cloud function deploy -i 2021001136614025 -s c8c5bb53-3da8-4129-8be4-a79270f84ef9 -p functions/ -n todo admin",
+    "deploy:prod": "npm run prod && alipaydev cloud function deploy -i 2021001136614025 -s 3f34066d-a939-4990-a0a6-ddc33e014713 -p functions/ -n todo admin"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/node": "^14.0.1",
+    "alipay-dev": "^0.4.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "fork-ts-checker-webpack-plugin": "^4.1.4",
+    "lodash": "^4.17.15",
+    "typescript": "^3.8.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "lodash-es": "^4.17.15"
+  }
+}
