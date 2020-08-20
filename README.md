@@ -5,7 +5,7 @@ cd client & npm install
 cd server & npm install
 ```
 2. 把整个项目导入到支付宝IDE
-3. 修改``client/lib/serverless``文件的阿里云空间配置
+3. 修改``client/lib/serverless.js``文件的阿里云空间配置
 ```javascript
 const serverlessConfig = {
   local: {
@@ -17,11 +17,11 @@ const serverlessConfig = {
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   test: {
-    spaceId: "c8c5bb53-3da8-4129-8be4-123456",
+    spaceId: "c8c5bb53-3da8-4129-8be4-555555",
     clientSecret: "MA5S3CHso1uZhLIrWnoijg=="
   },
   prod: {
-    spaceId: "3f34066d-a939-4990-a0a6-123456",
+    spaceId: "3f34066d-a939-4990-a0a6-666666",
     clientSecret: "+3rG6lqWZi4Y84O6cmrOMw=="
   }
 };

@@ -69,11 +69,11 @@ const serverlessConfig = {
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   test: {
-    spaceId: "c8c5bb53-3da8-4129-8be4-123456",
+    spaceId: "c8c5bb53-3da8-4129-8be4-555555",
     clientSecret: "MA5S3CHso1uZhLIrWnoijg=="
   },
   prod: {
-    spaceId: "3f34066d-a939-4990-a0a6-123456",
+    spaceId: "3f34066d-a939-4990-a0a6-666666",
     clientSecret: "+3rG6lqWZi4Y84O6cmrOMw=="
   }
 };
