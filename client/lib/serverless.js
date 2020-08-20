@@ -53,23 +53,27 @@ export async function invokeFunction(options) {
   return Promise.reject(res);
 }
 
+// 修改成自己小程序的appId
 const appId = "2021001136614025";
 
+/**
+ * 这里的代码需要替换成对应阿里云账号的空间配置
+ */
 const serverlessConfig = {
   local: {
-    spaceId: "d3256972-e23e-4eb6-9bea-c92ce0a2d74e",
+    spaceId: "d3256972-e23e-4eb6-9bea-123456",
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   dev: {
-    spaceId: "d3256972-e23e-4eb6-9bea-c92ce0a2d74e",
+    spaceId: "d3256972-e23e-4eb6-9bea-123456",
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   test: {
-    spaceId: "c8c5bb53-3da8-4129-8be4-a79270f84ef9",
+    spaceId: "c8c5bb53-3da8-4129-8be4-123456",
     clientSecret: "MA5S3CHso1uZhLIrWnoijg=="
   },
   prod: {
-    spaceId: "3f34066d-a939-4990-a0a6-ddc33e014713",
+    spaceId: "3f34066d-a939-4990-a0a6-123456",
     clientSecret: "+3rG6lqWZi4Y84O6cmrOMw=="
   }
 };
