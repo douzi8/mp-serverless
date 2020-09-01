@@ -61,19 +61,19 @@ const appId = "2021001136614025";
  */
 const serverlessConfig = {
   local: {
-    spaceId: "d3256972-e23e-4eb6-9bea-123456",
+    spaceId: "d3256972-e23e-4eb6-9bea-c92ce0a2d74e",
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   dev: {
-    spaceId: "d3256972-e23e-4eb6-9bea-123456",
+    spaceId: "d3256972-e23e-4eb6-9bea-c92ce0a2d74e",
     clientSecret: "DaDGmRAJ5Nx8Ec59/hVtww=="
   },
   test: {
-    spaceId: "c8c5bb53-3da8-4129-8be4-555555",
+    spaceId: "c8c5bb53-3da8-4129-8be4-a79270f84ef9",
     clientSecret: "MA5S3CHso1uZhLIrWnoijg=="
   },
   prod: {
-    spaceId: "3f34066d-a939-4990-a0a6-666666",
+    spaceId: "3f34066d-a939-4990-a0a6-ddc33e014713",
     clientSecret: "+3rG6lqWZi4Y84O6cmrOMw=="
   }
 };
@@ -82,40 +82,32 @@ const serverlessConfig = {
  * 管理员,切换小程序空间
  */
 async function changeCloudSpaceService() {
-  // 判断用户当前十分有权限
+  // 判断用户当前是否有权限
   const canChange = await invokeFunction({
-    name: "admin",
-    url: "space/change"
+    name: 'admin',
+    url: 'space/change',
   }).catch(() => false);
 
   if (!canChange) return;
 
-  const spaces = ["重启小程序", "dev", "test", "prod"];
+  const spaces = ['dev', 'test', 'prod'];
 
   if (my.isIDE) {
-    spaces.splice(1, 0, "local");
+    spaces.splice(0, 0, 'local');
   }
 
   my.showActionSheet({
-    title: "选择小程序Serverless空间",
+    title: '选择小程序Serverless空间',
     items: spaces,
     success: res => {
-      // 重启小程序
-      if (res.index === 0) {
-        my.reLaunch({
-          url: `/${getCurrentPages()[0].route}`
-        });
-        return;
-      }
-
       const space = spaces[res.index];
 
       if (!space) return;
 
       // 设置缓存
       my.setStorageSync({
-        key: "cloud_space",
-        data: space
+        key: 'cloud_space',
+        data: space,
       });
 
       // 清空授权缓存
@@ -123,10 +115,18 @@ async function changeCloudSpaceService() {
 
       serverlessInit();
 
-      my.showToast({
-        content: `${space}空间切换成功`
+      my.confirm({
+        title: `${space}空间切换成功`,
+        content: '您是否想立即重启小程序',
+        success: result => {
+          if (result.confirm) {
+            my.reLaunch({
+              url: `/${getCurrentPages()[0].route}`,
+            });
+          }
+        },
       });
-    }
+    },
   });
 }
 
